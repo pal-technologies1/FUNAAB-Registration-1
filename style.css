@@ -1,0 +1,424 @@
+
+/* =====================================
+   FUNAAB STUDENT REGISTRATION
+   Copyright Pal Technologies 2026
+   ===================================== */
+
+/* Colour Variables */
+:root {
+    --primary-green: #08783e;
+    --dark-green: #055b2e;
+    --light-green: #eaf5ed;
+    --white: #ffffff;
+    --text-dark: #243329;
+    --text-muted: #66756b;
+    --border-color: #d4e2d8;
+    --error-color: #c62828;
+    --shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Page Background */
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+
+    background-image:
+        linear-gradient(
+            rgba(3, 52, 25, 0.62),
+            rgba(3, 52, 25, 0.62)
+        ),
+        url("images/campus-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* University Header */
+.site-header {
+    width: 100%;
+    padding: 28px 20px;
+    text-align: center;
+    color: var(--white);
+    background: rgba(5, 91, 46, 0.93);
+    border-bottom: 4px solid #c7e5cf;
+    animation: slideDown 0.7s ease both;
+}
+
+/* University Logo */
+.university-logo {
+    display: block;
+    width: 95px;
+    height: 95px;
+    object-fit: contain;
+    margin: 0 auto 12px;
+    padding: 5px;
+    background: var(--white);
+    border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+/* Main Heading */
+.site-header h1 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.site-header p {
+    font-size: 0.95rem;
+}
+
+/* Main Content Area */
+main {
+    flex: 1;
+    width: 100%;
+    padding: 38px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Registration Card */
+.registration-section {
+    width: 100%;
+    max-width: 620px;
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.97);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    animation: fadeUp 0.8s ease both;
+}
+
+/* Form Heading */
+.form-heading {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.form-heading h2 {
+    color: var(--primary-green);
+    font-size: 1.7rem;
+    margin-bottom: 5px;
+}
+
+.form-heading p {
+    color: var(--text-muted);
+    font-size: 0.94rem;
+}
+
+/* Form Fields */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 0.94rem;
+    font-weight: 700;
+    color: var(--dark-green);
+}
+
+/* Inputs and Dropdowns */
+.form-group input,
+.form-group select {
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--text-dark);
+    background: var(--white);
+    border: 1px solid #bdcfc2;
+    border-radius: 8px;
+    outline: none;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+/* Focus State */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--primary-green);
+    box-shadow: 0 0 0 3px rgba(8, 120, 62, 0.14);
+    background-color: #fcfffd;
+}
+
+/* Placeholder */
+.form-group input::placeholder {
+    color: #89958c;
+    font-size: 0.9rem;
+}
+
+/* Field Hint */
+.field-hint {
+    display: block;
+    margin-top: 5px;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+}
+
+/* Invalid Field */
+.form-group input.invalid,
+.form-group select.invalid {
+    border-color: var(--error-color);
+    background-color: #fffafa;
+}
+
+/* Validation Feedback */
+.field-error {
+    display: block;
+    margin-top: 5px;
+    color: var(--error-color);
+    font-size: 0.82rem;
+}
+
+/* Button Container */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+/* General Button Styling */
+.form-actions button,
+.success-message button {
+    min-height: 48px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        transform 0.2s ease,
+        box-shadow 0.25s ease;
+}
+
+/* Register Button */
+#registerButton {
+    flex: 2;
+    color: var(--white);
+    background: var(--primary-green);
+    box-shadow: 0 4px 10px rgba(8, 120, 62, 0.2);
+}
+
+#registerButton:hover {
+    background: var(--dark-green);
+    box-shadow: 0 6px 15px rgba(8, 120, 62, 0.28);
+    transform: translateY(-2px);
+}
+
+#registerButton:active {
+    transform: scale(0.98);
+}
+
+/* Disabled / Processing Button */
+#registerButton:disabled {
+    opacity: 0.75;
+    cursor: wait;
+    transform: none;
+}
+
+/* Clear Button */
+#resetButton {
+    flex: 1;
+    color: var(--dark-green);
+    background: var(--light-green);
+    border: 1px solid var(--border-color);
+}
+
+#resetButton:hover {
+    background: #dcefe1;
+}
+
+/* Success Message */
+.success-message {
+    margin-top: 24px;
+    padding: 28px 20px;
+    text-align: center;
+    color: var(--text-dark);
+    background: var(--light-green);
+    border: 1px solid #b9dfc5;
+    border-radius: 14px;
+    animation: successAppear 0.55s ease both;
+}
+
+.success-message[hidden] {
+    display: none;
+}
+
+.success-icon {
+    width: 68px;
+    height: 68px;
+    margin: 0 auto 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    background: var(--primary-green);
+    border-radius: 50%;
+    font-size: 2.5rem;
+    font-weight: bold;
+    animation: checkPop 0.55s 0.15s ease both;
+}
+
+.success-message h2 {
+    color: var(--primary-green);
+    margin-bottom: 8px;
+}
+
+.success-message p {
+    margin-bottom: 18px;
+    color: var(--text-muted);
+}
+
+.success-message button {
+    color: var(--white);
+    background: var(--primary-green);
+}
+
+.success-message button:hover {
+    background: var(--dark-green);
+}
+
+/* Footer */
+.site-footer {
+    padding: 18px 12px;
+    text-align: center;
+    color: var(--white);
+    background: rgba(5, 91, 46, 0.96);
+    font-size: 0.88rem;
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes successAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes checkPop {
+    0% {
+        opacity: 0;
+        transform: scale(0.4) rotate(-25deg);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.12) rotate(5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+/* Keyboard Accessibility */
+button:focus-visible {
+    outline: 3px solid #8ccda3;
+    outline-offset: 3px;
+}
+
+/* Mobile Responsive Layout */
+@media (max-width: 480px) {
+    .site-header {
+        padding: 22px 14px;
+    }
+
+    .university-logo {
+        width: 78px;
+        height: 78px;
+    }
+
+    .site-header p {
+        font-size: 0.82rem;
+    }
+
+    main {
+        padding: 24px 12px;
+    }
+
+    .registration-section {
+        padding: 23px 17px;
+        border-radius: 13px;
+    }
+
+    .form-heading h2 {
+        font-size: 1.45rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    #registerButton,
+    #resetButton {
+        flex: auto;
+        width: 100%;
+    }
+}
+
+/* Respect Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+
